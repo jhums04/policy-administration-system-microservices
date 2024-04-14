@@ -29,5 +29,10 @@ public class Policy {
     @OneToMany(mappedBy = "policy")
     private List<PolicyHolder> policyHolder;
 
+    @ManyToOne
+    @JoinColumn(name = "customer_account_id")
+    private CustomerAccount customerAccount;
+
+
 
 }
