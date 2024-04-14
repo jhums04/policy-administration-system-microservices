@@ -39,6 +39,11 @@ public class CustomerAccountOwnerController {
         return accountOwnerService.deleteAccountOwnerById(id);
     }
 
+    @PutMapping("/{id}")
+    public AccountOwnerDTO updateAccountOwnerInfoById(@RequestBody AccountOwnerDTO accountOwnerDTO) {
+        return accountOwnerService.updateAccountOwnerInfoById(accountOwnerDTO);
+    }
+
 
 
 }

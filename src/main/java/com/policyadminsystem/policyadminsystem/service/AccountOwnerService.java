@@ -61,4 +61,22 @@ public class AccountOwnerService {
         accountOwnerRepository.deleteById(id);
         return String.format("Account owner with id: %d deleted successfully", id);
     }
+
+    public AccountOwnerDTO updateAccountOwnerInfoById(AccountOwnerDTO accountOwnerDTO) {
+        AccountOwner accountOwnerFromDb = accountOwnerRepository.findById(accountOwnerDTO.getId()).orElseThrow(
+                () -> new AccountOwnerNotFoundException("Account owner", "id", accountOwnerDTO.getId())
+        );
+
+        if (accountOwnerDTO.getFirstName() != null) // Check for nullability
+            accountOwnerFromDb.setFirstName(accountOwnerDTO.getFirstName());
+
+        if (accountOwnerDTO.getLastName() != null) // Check for nullability
+            accountOwnerFromDb.setLastName(accountOwnerDTO.getLastName());
+
+        if (accountOwnerDTO.getAddress() != null) // Check for nullability
+            accountOwnerFromDb.setAddress(accountOwnerDTO.getAddress());
+
+        return CustomerAccountMapper.accountOwnerDataToDTO(accountOwnerRepository.save(accountOwnerFromDb));
+    }
+
 }
