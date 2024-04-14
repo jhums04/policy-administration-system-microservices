@@ -1,15 +1,15 @@
-Account owners endpoints
+**Account owners endpoints**
 
-Get:
+**Get:**
 all - api/v1/account-owner
 by id = api/v1/account-owner/{id}
 
-Post:
+**Post:**
 /api/v1/account-owner
 
-Put:
+**Put:**
 /api/v1/account-owner/{id}
 
-Delete:
+**Delete:**
 all -/api/v1/account-owner/delete-all
 by id - /api/v1/account-owner/{id}
