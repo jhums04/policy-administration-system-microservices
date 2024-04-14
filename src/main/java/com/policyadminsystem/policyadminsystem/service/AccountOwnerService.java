@@ -8,6 +8,10 @@ import com.policyadminsystem.policyadminsystem.repository.AccountOwnerRepository
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class AccountOwnerService {
 
@@ -21,4 +25,12 @@ public class AccountOwnerService {
         ));
     }
 
+    public List<AccountOwnerDTO> findAll() {
+        return accountOwnerRepository.findAll().isEmpty() ?
+                Collections.emptyList() :
+                accountOwnerRepository.findAll()
+                        .stream()
+                        .map(accountOwner -> CustomerAccountMapper.accountOwnerDataToDTO(accountOwner))
+                        .toList();
+    }
 }
