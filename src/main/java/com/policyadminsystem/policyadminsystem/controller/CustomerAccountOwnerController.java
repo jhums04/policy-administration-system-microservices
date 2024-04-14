@@ -19,9 +19,24 @@ public class CustomerAccountOwnerController {
     public AccountOwnerDTO findAccountOwnerById(@PathVariable("id") Long id) {
         return accountOwnerService.findAccountOwnerById(id);
     }
-    @GetMapping()
+    @GetMapping
     public List<AccountOwnerDTO> findAccountOwners() {
         return accountOwnerService.findAll();
+    }
+
+    @PostMapping
+    public AccountOwnerDTO createAccountOwner(@RequestBody AccountOwnerDTO accountOwnerDTO) {
+        return accountOwnerService.createNewOwner(accountOwnerDTO);
+    }
+
+    @DeleteMapping("/delete-all")
+    public String deleteAllAccountOwners() {
+        return accountOwnerService.deleteAll();
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteAccountOwnerById(@PathVariable Long id) {
+        return accountOwnerService.deleteAccountOwnerById(id);
     }
 
 

@@ -21,4 +21,13 @@ public class CustomerAccountMapper {
         accountOwnerDTO.setLastName(accountOwner.getLastName());
         return accountOwnerDTO;
     }
+
+    public static AccountOwner accountOwnerDTOtoData(AccountOwnerDTO accountOwnerDTO) {
+        return AccountOwner.builder()
+                .firstName(accountOwnerDTO.getFirstName().equals(null) ? null : accountOwnerDTO.getFirstName())
+                .lastName(accountOwnerDTO.getLastName().equals(null) ? null : accountOwnerDTO.getLastName())
+                .address(accountOwnerDTO.getAddress().equals(null) ? null : accountOwnerDTO.getAddress())
+                .build();
+    }
+
 }
