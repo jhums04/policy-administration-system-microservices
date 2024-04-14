@@ -11,7 +11,7 @@ public class AccountOwner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long id;
+    public Long account_owner_id;
 
 
     @Column(nullable = false)
@@ -21,7 +21,4 @@ public class AccountOwner {
     private String lastName;
     private String address;
 
-    public String getFullName() {
-        return String.format("%s %s", getFirstName(), getFullName());
-    }
 }
